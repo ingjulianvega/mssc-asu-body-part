@@ -1,6 +1,6 @@
 [![CircleCI](https://circleci.com/gh/ingjulianvega/mssc-asu-body-part.svg?style=svg)](https://circleci.com/gh/ingjulianvega/mssc-asu-body-part)
 
-# ASU evidence type management microservice
+# ASU body part management microservice
 
 ### BOM
 

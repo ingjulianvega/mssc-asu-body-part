@@ -29,7 +29,7 @@ public class BodyPartServiceImpl implements BodyPartService {
         log.debug("get()...");
         return BodyPartList
                 .builder()
-                .bodyPartList(bodyPartMapper.bodyPartEntityListToBodyPartDtoList(bodyPartRepository.findAll()))
+                .bodyPartList(bodyPartMapper.bodyPartEntityListToBodyPartDtoList(bodyPartRepository.findAllByOrderByName()))
                 .build();
     }
 
