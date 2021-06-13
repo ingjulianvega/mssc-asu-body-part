@@ -21,8 +21,8 @@ public class BodyPartController implements BodyPartI {
     private final BodyPartService bodyPartService;
 
     @Override
-    public ResponseEntity<BodyPartList> get() {
-        return new ResponseEntity<>(bodyPartService.get(), HttpStatus.OK);
+    public ResponseEntity<BodyPartList> get(Boolean usingCache) {
+        return new ResponseEntity<>(bodyPartService.get(usingCache), HttpStatus.OK);
     }
 
     @Override

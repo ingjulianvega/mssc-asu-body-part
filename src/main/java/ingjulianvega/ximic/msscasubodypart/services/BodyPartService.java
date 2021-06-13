@@ -8,7 +8,7 @@ import ingjulianvega.ximic.msscasubodypart.web.model.BodyPartList;
 import java.util.UUID;
 
 public interface BodyPartService {
-    BodyPartList get();
+    BodyPartList get(Boolean usingCache);
 
     BodyPartDto getById(UUID id);
 

@@ -23,9 +23,9 @@ public class BodyPartServiceImpl implements BodyPartService {
     private final BodyPartRepository bodyPartRepository;
     private final BodyPartMapper bodyPartMapper;
 
-    @Cacheable(cacheNames = "bodyPartListCache")
+    @Cacheable(cacheNames = "bodyPartListCache", condition = "#usingCache == false")
     @Override
-    public BodyPartList get() {
+    public BodyPartList get(Boolean usingCache) {
         log.debug("get()...");
         return BodyPartList
                 .builder()

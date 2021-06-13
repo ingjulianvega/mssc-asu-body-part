@@ -34,7 +34,7 @@ public interface BodyPartI {
     @RequestMapping(value = "/",
             produces = {"application/json"},
             method = RequestMethod.GET)
-    ResponseEntity<BodyPartList> get();
+    ResponseEntity<BodyPartList> get(@Parameter(in = ParameterIn.QUERY, description = "The using of cache", required = true, schema = @Schema()) Boolean usingCache);
 
     @Operation(summary = "Endpoint to get the information of a body part given the id", description = "Returns a body part", tags = {"body part"})
     @ApiResponses(value = {

@@ -37,7 +37,11 @@ logging:
 #Exceptions
 body-part:
   success: The operation was successful.
-  prefix: 'API-BPT:'
+  prefix: 'BODY-PART'
   error:
     general: There was an unexpected error. Please try again.
-
+#Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://netflix:eureka@localhost:8761/eureka
