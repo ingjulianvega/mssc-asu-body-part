@@ -31,15 +31,12 @@ server:
   servlet:
     context-path: /asu/v1/body-part
 #Logging
-logging:
-  level:
-    root: DEBUG
+#logging:
+#  level:
+#    root: DEBUG
 #Exceptions
 body-part:
-  success: The operation was successful.
-  prefix: 'BODY-PART'
-  error:
-    general: There was an unexpected error. Please try again.
+  api: @artifactId@
 #Eureka
 eureka:
   client:
