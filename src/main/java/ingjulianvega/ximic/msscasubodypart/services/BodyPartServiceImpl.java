@@ -11,6 +11,7 @@ import ingjulianvega.ximic.msscasubodypart.web.model.BodyPartList;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -39,7 +40,14 @@ public class BodyPartServiceImpl implements BodyPartService {
         log.debug("getById()...");
         return bodyPartMapper.bodyPartEntityToBodyPartDto(
                 bodyPartRepository.findById(id)
-                        .orElseThrow(() -> new BodyPartException(ErrorCodeMessages.BODY_PART_NOT_FOUND, "")));
+                        .orElseThrow(() -> BodyPartException
+                                .builder()
+                                .httpStatus(HttpStatus.BAD_REQUEST)
+                                .apiCode(ErrorCodeMessages.BODY_PART_NOT_FOUND_API_CODE)
+                                .error(ErrorCodeMessages.BODY_PART_NOT_FOUND_ERROR)
+                                .message(ErrorCodeMessages.BODY_PART_NOT_FOUND_MESSAGE)
+                                .solution(ErrorCodeMessages.BODY_PART_NOT_FOUND_SOLUTION)
+                                .build()));
     }
 
     @Override
@@ -58,7 +66,14 @@ public class BodyPartServiceImpl implements BodyPartService {
     public void updateById(UUID id, BodyPart bodyPart) {
         log.debug("updateById...");
         BodyPartEntity evidenceEntity = bodyPartRepository.findById(id)
-                .orElseThrow(() -> new BodyPartException(ErrorCodeMessages.BODY_PART_NOT_FOUND, ""));
+                .orElseThrow(() -> BodyPartException
+                        .builder()
+                        .httpStatus(HttpStatus.BAD_REQUEST)
+                        .apiCode(ErrorCodeMessages.BODY_PART_NOT_FOUND_API_CODE)
+                        .error(ErrorCodeMessages.BODY_PART_NOT_FOUND_ERROR)
+                        .message(ErrorCodeMessages.BODY_PART_NOT_FOUND_MESSAGE)
+                        .solution(ErrorCodeMessages.BODY_PART_NOT_FOUND_SOLUTION)
+                        .build());
 
         evidenceEntity.setName(bodyPart.getName());
 
