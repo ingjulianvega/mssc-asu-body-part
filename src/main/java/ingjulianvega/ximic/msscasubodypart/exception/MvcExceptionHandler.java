@@ -1,8 +1,7 @@
-package ingjulianvega.ximic.msscasubodypart.web.controller;
+package ingjulianvega.ximic.msscasubodypart.exception;
 
 import ingjulianvega.ximic.msscasubodypart.configuration.BodyPartParameters;
 import ingjulianvega.ximic.msscasubodypart.configuration.ErrorCodeMessages;
-import ingjulianvega.ximic.msscasubodypart.exception.BodyPartException;
 import ingjulianvega.ximic.msscasubodypart.web.model.ApiError;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -38,7 +37,7 @@ public class MvcExceptionHandler extends ResponseEntityExceptionHandler {
                 .message(ame.getMessage())
                 .solution(ame.getSolution())
                 .build();
-         return new ResponseEntity<>(apiError, ame.getHttpStatus());
+        return new ResponseEntity<>(apiError, ame.getHttpStatus());
     }
 
     @Override
